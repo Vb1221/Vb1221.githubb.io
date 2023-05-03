@@ -11,35 +11,44 @@ window.onload = () => {
   let dateText = dayOfWeek + ', ' + day + ' ' + month;
     document.querySelector('.card-title').innerHTML = dateText;
 
-    // let plusBtn = document.querySelector('.plusBtn')
-    // // let searchFood = document.createElement('input')
-    // let menuList = document.querySelector('.menuList')
-    // let foodList = document.createElement('p')
 
 
-    const addFoodBtn = document.querySelector('#addFoodBtn');
-    const addFoodModal = new bootstrap.Modal(document.querySelector('#addFoodModal'));
-
-    addFoodBtn.addEventListener('click', () => {
-    addFoodModal.show();
-});
-
-const saveFoodBtn = document.querySelector('#saveFoodBtn');
-const newFoodInput = document.querySelector('#newFoodInput');
-const menuList = document.querySelector('.menuList');
-
-saveFoodBtn.addEventListener('click', () => {
-  const foodName = newFoodInput.value.trim();
-  
-  if (foodName !== '') {
-    const foodItem = document.createElement('div');
-    foodItem.classList.add('foodItem');
-    foodItem.textContent = foodName;
+let addBtns = document.querySelectorAll('.addBtn');
+addBtns.forEach(addBtn => {
+  addBtn.addEventListener('click', () => {
+    let menuList = addBtn.previousElementSibling;
+    let inputContainer = document.createElement('div');
+    inputContainer.innerHTML = `
+      <input type="text" class="form-control mb-2" placeholder="Інгредієнт">
+      <button type="button" class="btn btn-primary addFoodBtn">Додати</button>
+      <button type="button" class="btn btn-secondary cancelBtn">Відмінити</button>
+    `;
+    menuList.appendChild(inputContainer);
     
-    menuList.appendChild(foodItem);
-    addFoodModal.hide();
-  }
+    // Обробник події для кнопки "Додати"
+    let addFoodBtn = inputContainer.querySelector('.addFoodBtn');
+    addFoodBtn.addEventListener('click', () => {
+      let input = inputContainer.querySelector('input');
+      let ingredient = input.value.trim();
+      // Додавання інгредієнту в список
+      let listItem = document.createElement('div');
+      listItem.classList.add('mb-2');
+      listItem.innerHTML = `
+        <span class="me-2">${ingredient}</span>
+        <button type="button" class="btn btn-danger deleteFoodBtn">x</button>
+      `;
+      menuList.insertBefore(listItem, inputContainer);
+      inputContainer.remove();
+    });
+    
+    // Обробник події для кнопки "Відмінити"
+    let cancelBtn = inputContainer.querySelector('.cancelBtn');
+    cancelBtn.addEventListener('click', () => {
+      inputContainer.remove();
+    });
+  });
 });
+
 
 
 }
