@@ -12,7 +12,7 @@
 <body>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar navbar-light">
       <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">Головна</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="../calendar/calendar.html">Календар</a>
+              <a class="nav-link" href="../tasks/tasks.html">Задачі</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="loginForm.html">Логін</a>
@@ -32,39 +32,51 @@
     </nav>
   </header>
 
-
-  <div class="container">
-    <h2>Вхід на сайт</h2>
-    <form id="login-form">
-      <div class="mb-3">
-        <label for="email" class="form-label">Електронна пошта</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Пароль</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-dark">Увійти</button>
+  <div class="login-form-wrapper">
+    <form class="login-form">
+      <h2 class="form-title">Авторизація</h2>
+      <label for="username">Ім'я користувача:</label>
+      <input type="text" name="username" required class="form-input">
+    
+      <label for="password">Пароль:</label>
+      <input type="password" name="password" required class="form-input">
+    
+      <button type="submit" class="form-submit">Увійти</button>
     </form>
     
-    <button id="register-toggle" class="btn btn-dark mt-3">Реєстрація</button>
-    
-    <form id="register-form" style="display:none;">
-      <div class="mb-3">
-        <label for="name" class="form-label">Ім'я</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="mb-3">
-        <label for="new-email" class="form-label">Електронна пошта</label>
-        <input type="email" class="form-control" id="new-email" name="new-email" required>
-      </div>
-      <div class="mb-3">
-        <label for="new-password" class="form-label">Пароль</label>
-        <input type="password" class="form-control" id="new-password" name="new-password" required>
-      </div>
-      <button type="submit" class="btn btn-dark">Зареєструватись</button>
-    </form>
+    <div class="create-account-wrapper">
+      <span>Не маєте облікового запису?</span>
+      <button class="create-account-button">Створити обліковий запис</button>
+    </div>
   </div>
+  
+  <!--  -->
+
+  <div class="form-container">
+    <form class="form">
+      <h2 class="form-titleReg">Реєстрація</h2>
+      <label for="username">Ім'я користувача:</label>
+      <input type="text" name="username" required class="form-inputReg">
+    
+      <label for="email">Електронна пошта:</label>
+      <input type="email" name="email" required class="form-inputReg">
+    
+      <label for="password">Пароль:</label>
+      <input type="password" name="password" required class="form-inputReg">
+    
+      <label for="confirm-password">Підтвердити пароль:</label>
+      <input type="password" name="confirm-password" required class="form-inputReg">
+    
+      <button type="submit" class="form-submitReg">Зареєструватись</button>
+    </form>
+    
+    <div class="form-bottom-text">
+      <span>Вже є обліковий запис?</span>
+      <button class="form-switch-button">Увійти</button>
+    </div>
+  </div>
+  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

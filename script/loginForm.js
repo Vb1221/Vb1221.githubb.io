@@ -1,23 +1,17 @@
 window.onload = () => {
-  let registerToggle = document.getElementById("register-toggle");
-  let registerForm = document.getElementById("register-form");
-  let loginForm = document.getElementById("login-form");
+let loginBlock = document.querySelector('.login-form-wrapper') ;
+let registrationBlock = document.querySelector('.form-container');
 
-registerToggle.addEventListener("click", () => {
-  loginForm.style.display = "none";
-  registerForm.style.display = "block";
-  registerToggle.style.display = "none";
+let switchFormBtn = document.querySelector('.create-account-button');
+let switchFormBtnLogin = document.querySelector('.form-switch-button')
 
-});
+switchFormBtn.onclick = () => {
+  loginBlock.style.display = 'none'
+  registrationBlock.style.display = 'block'
+}
 
-registerForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  // код для реєстрації користувача
-});
-
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  // код для авторизації користувача
-});
-
+switchFormBtnLogin.onclick = () => {
+  loginBlock.style.display = 'flex'
+  registrationBlock.style.display = 'none'
+}
 }
