@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="../tasks/tasks.html">Задачі</a>
+              <a class="nav-link" href="../savedMenu/menu.html">Збережене Меню</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="loginForm.html">Логін</a>
@@ -36,16 +36,15 @@
     <form class="login-form">
       <h2 class="form-title">Авторизація</h2>
       <label for="username">Ім'я користувача:</label>
-      <input type="text" name="username" required class="form-input">
+      <input type="text" name="username" required class="form-input login">
     
       <label for="password">Пароль:</label>
-      <input type="password" name="password" required class="form-input">
+      <input type="password" name="password" required class="form-input password">
     
       <button type="submit" class="form-submit">Увійти</button>
     </form>
     
     <div class="create-account-wrapper">
-      <span>Не маєте облікового запису?</span>
       <button class="create-account-button">Створити обліковий запис</button>
     </div>
   </div>
@@ -56,16 +55,13 @@
     <form class="form">
       <h2 class="form-titleReg">Реєстрація</h2>
       <label for="username">Ім'я користувача:</label>
-      <input type="text" name="username" required class="form-inputReg">
-    
-      <label for="email">Електронна пошта:</label>
-      <input type="email" name="email" required class="form-inputReg">
+      <input type="text" name="username" required class="form-inputReg createLogin">
     
       <label for="password">Пароль:</label>
-      <input type="password" name="password" required class="form-inputReg">
+      <input type="password" name="password" required class="form-inputReg createPass">
     
       <label for="confirm-password">Підтвердити пароль:</label>
-      <input type="password" name="confirm-password" required class="form-inputReg">
+      <input type="password" name="confirm-password" required class="form-inputReg configPass">
     
       <button type="submit" class="form-submitReg">Зареєструватись</button>
     </form>

@@ -4,6 +4,82 @@ body{
 
   }
 
-.testSearch{
-  margin: 3em;
-}
+
+  .output{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  
+  .dayCard {
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+    background-color:#f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .foodBlock{
+    background-color:#9db0ca54;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .dayCard h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .mealCards {
+    margin-bottom: 10px;
+  }
+  
+  .mealCards h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .mealCards p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .dayCard p {
+    margin-top: 10px;
+    margin-right: 1em;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .calories{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 15px;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .btn:active {
+    background-color: #3e8e41;
+  }
+  
