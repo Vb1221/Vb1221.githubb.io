@@ -162,4 +162,8 @@ window.onload = () => {
     document.body.appendChild(modal);
   }
   
+
+  document.querySelector('.savePlan').onclick = () => {
+    alert('btn work')
+  }
 }
