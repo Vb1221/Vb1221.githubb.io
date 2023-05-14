@@ -162,8 +162,11 @@ window.onload = () => {
     document.body.appendChild(modal);
   }
   
+  
+   let testBtn = document.querySelector('.savePlan')
 
-  document.querySelector('.savePlan').onclick = () => {
+   testBtn.addEventListener('click', function(){
     alert('btn work')
-  }
+   })
+
 }
