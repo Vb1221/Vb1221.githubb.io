@@ -165,7 +165,7 @@ window.onload = () => {
   
    let testBtn = document.querySelector('.savePlan')
 
-   testBtn.addEventListener('touchstart', function(){
+   testBtn.addEventListener('touch', function(){
     alert('btn work')
    })
 
