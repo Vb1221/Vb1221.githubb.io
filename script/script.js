@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = function() {
   const apiKey = '799169150d9342378d1990ab3e44402e';
   const url = `https://api.spoonacular.com/mealplanner/generate?timeFrame=week&apiKey=${apiKey}`;
   
