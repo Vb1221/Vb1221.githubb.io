@@ -1,6 +1,6 @@
 window.onload = () => {
   let body = document.querySelector('body')
-
+  const apiKey = '799169150d9342378d1990ab3e44402e';
 
   let currentDate = new Date();
   let days = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', "П'ятниця", 'Субота'];
@@ -25,7 +25,7 @@ window.onload = () => {
 
 
 
-function displayAllWeek(weekMealPlan){
+function displayAllWeek(...weekMealPlan){
 
   weekMealPlan.forEach((week) => {
     Object.entries(week).forEach(([day, data]) => {
@@ -51,6 +51,7 @@ function displayAllWeek(weekMealPlan){
 
         let mealsTitle = document.createElement('h2');
         mealsTitle.innerHTML = meal.title;
+        mealsTitle.addEventListener('click', () => showRecipe(meal.id));
         foodDiv.appendChild(mealsTitle);
 
         let timeForCooking = document.createElement('p');
@@ -76,9 +77,72 @@ function displayAllWeek(weekMealPlan){
 }
 
 
+function showRecipe(title) {
+  const recipeDetails = localStorage.getItem('recipeDetails');
+  if (recipeDetails) {
 
-// console.log(currentDate.getDay())
-// console.log(dayArr)
+    const [recipeTitle, recipeInstructions, recipeImage] = JSON.parse(recipeDetails);
+    displayRecipeModal(recipeTitle, recipeInstructions, recipeImage);
+    console.log('взяли з локал стореджа')
+  } else {
 
+    const urlId = `https://api.spoonacular.com/recipes/${title}/information?includeNutrition=false&apiKey=${apiKey}`;
+
+    fetch(urlId)
+      .then(response => response.json())
+      .then(data => {
+
+        const recipeTitle = data.title;
+        const recipeInstructions = data.instructions;і
+        const recipeImage = data.image;
+
+
+        const recipeDetails = [recipeTitle, recipeInstructions, recipeImage];
+        localStorage.setItem('recipeDetails', JSON.stringify(recipeDetails));
+
+        console.log('запит був')
+        displayRecipeModal(recipeTitle, recipeInstructions, recipeImage);
+      })
+      .catch(error => {
+        console.log('Сталася помилка:', error);
+      });
+  }
+}
+
+function displayRecipeModal(recipeTitle, recipeInstructions, recipeImage) {
+
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+
+  const modalContent = document.createElement('div');
+  modalContent.className = 'modal-content';
+
+  const closeButton = document.createElement('span');
+  closeButton.className = 'close-button';
+  closeButton.innerHTML = '&times;';
+  closeButton.addEventListener('click', () => {
+
+    document.body.removeChild(modal);
+  });
+
+  const recipeTitleElement = document.createElement('h2');
+  recipeTitleElement.innerHTML = recipeTitle;
+
+  const recipeInstructionsElement = document.createElement('p');
+  recipeInstructionsElement.innerHTML = recipeInstructions;
+
+  const recipeImageElement = document.createElement('img');
+  recipeImageElement.src = recipeImage;
+
+
+  modalContent.appendChild(closeButton);
+  modalContent.appendChild(recipeTitleElement);
+  modalContent.appendChild(recipeInstructionsElement);
+  modalContent.appendChild(recipeImageElement);
+  modal.appendChild(modalContent);
+
+
+  document.body.appendChild(modal);
+}
 
 }
