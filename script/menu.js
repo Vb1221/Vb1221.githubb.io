@@ -83,7 +83,7 @@ function showRecipe(title) {
 
     const [recipeTitle, recipeInstructions, recipeImage] = JSON.parse(recipeDetails);
     displayRecipeModal(recipeTitle, recipeInstructions, recipeImage);
-    console.log('взяли з локал стореджа')
+    // console.log('взяли з локал стореджа')
   } else {
 
     const urlId = `https://api.spoonacular.com/recipes/${title}/information?includeNutrition=false&apiKey=${apiKey}`;
@@ -93,14 +93,14 @@ function showRecipe(title) {
       .then(data => {
 
         const recipeTitle = data.title;
-        const recipeInstructions = data.instructions;і
+        const recipeInstructions = data.instructions;
         const recipeImage = data.image;
 
 
         const recipeDetails = [recipeTitle, recipeInstructions, recipeImage];
         localStorage.setItem('recipeDetails', JSON.stringify(recipeDetails));
 
-        console.log('запит був')
+        // console.log('запит був')
         displayRecipeModal(recipeTitle, recipeInstructions, recipeImage);
       })
       .catch(error => {
