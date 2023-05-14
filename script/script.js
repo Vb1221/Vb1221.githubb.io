@@ -169,6 +169,8 @@ window.onload = () => {
 
   function myTouch(){
     alert('work')
+    let testStr = document.querySelector('.test')
+    testStr.innerHTML += 'work'
   }
 
 }
