@@ -161,16 +161,4 @@ window.onload = () => {
 
     document.body.appendChild(modal);
   }
-  
-  
-   let testBtn = document.querySelector('.savePlan')
-
-   testBtn.addEventListener('touchstart', myTouch)
-
-  function myTouch(){
-    alert('work')
-    let testStr = document.querySelector('.test')
-    testStr.innerHTML += 'work'
-  }
-
 }
